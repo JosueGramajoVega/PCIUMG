@@ -89,12 +89,26 @@ function draw(){
   line(309, 425,x, 425);}
   }
 
-  
   textSize(12);
   text('FRECUENCIA CARDIACA',25,365);
   fill(0);
   ellipse(460,425,40,40);
 
+  for(i=0;i<=1;i++){
+  textSize(12);
+  text('FRECUENCIA CARDIACA',25,365);
+  fill(0+i,5+2*i,10+i);
+  ellipse(460,425,40,40);
+  }
+
+  for(a=0;a<=5;a++){
+  fill(random(255),random(255),random(255));
+  rect(25*a,50*a,10*a,10*a);
+  }
+  for(b=0;b<=5;b++){
+  fill(random(255),random(255),random(255));
+  rect(30*b,30*b,10*b,10*b);
+  }
 }
 
 //Ciclo
