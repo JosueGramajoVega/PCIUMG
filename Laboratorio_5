@@ -1,0 +1,37 @@
+Figura sq, sq2;
+
+void setup(){
+  size(500,500);
+  smooth();
+  noStroke();
+  sq = new Figura(250,250,40,70,2);
+  sq2 = new Figura(180,170,70,20,2);}
+  
+void draw(){
+  background(30,48,199);
+  sq.move();
+  sq2.move();
+  sq.display();
+  sq2.display();
+  
+}
+
+class Figura{
+  
+  float x,y,a,b,speed;
+  
+  Figura(float xpos, float ypos, float w, float h, float sp){
+    x = xpos;
+    y = ypos;
+    a = w;
+    b = h;
+    speed = sp;
+  }
+  void display(){
+  rect(x,y,a,b);}
+  
+  void move(){
+  x += random(-speed, speed);
+    y += random(-speed, speed);
+  }
+}
