@@ -1,25 +1,25 @@
-int ledPin = 5;
+int ledPin = 9;
 boolean estadoLed = false;
 
 void setup() {
-   Serial.begin(9600);
-   pinMode(ledPin, OUTPUT);
-   digitalWrite(ledPin,estadoLed);
-   pinMode(LED_BUILTIN, OUTPUT);
+   Serial.begin(9600);//Abre puerto serie y determina la velocidad de transimisión de datos.
+   pinMode(ledPin, OUTPUT);//Configuración del Pin para que se comporte como entrada o salida.
+   digitalWrite(ledPin,estadoLed);//Determina voltaje para Pin, al ser OUTPUT será 5V para HIGH y 0V para LOW.
+   pinMode(LED_BUILTIN, OUTPUT);//Se refiere al LED de la placa.
 }
 
 void loop() {
   
-   digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
-   delay(2000);                       // wait for a second
-   digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
-   delay(1000);                       // wait for a second
+   digitalWrite(LED_BUILTIN, HIGH);   // Enciende el LED, proporcionando un nivel de voltaje HIGH (ALTO).
+   delay(2000);                       // Espera dos segundos. 
+   digitalWrite(LED_BUILTIN, LOW);    // Apaga el LED, por el voltaje LOW.
+   delay(1000);                       // Espera un segundo. 
 
-   if (Serial.available()){
+   if (Serial.available()//Transimisión de datos x64Byte ){
      char Letra = Serial.read();
-            if (Letra== 'a'){
-                  estadoLed= !estadoLed;
+            if (Letra== 'a'){//Condición para encendido y apagado de LED.
+                  estadoLed= !estadoLed;//Cambia el valor de "estadoLed"
                }
-             digitalWrite(ledPin,estadoLed);
+             digitalWrite(ledPin,estadoLed);//Muestra la nueva información del LED. 
             }
  }
