@@ -1,0 +1,34 @@
+import processing.serial.*;
+
+Serial myPort;
+String myText="";
+
+void setup(){
+size(300, 300);
+myPort = new Serial(this, "COM3", 9600);
+myPort.bufferUntil('n');
+}
+void serialEvent (Serial myPort){
+myText = myPort.readStringUntil('n');
+}
+
+void draw(){
+background(0);
+ellipse(100,100,100,100);
+rect(150,150,100,100);
+text(myText, 120, 120);
+myText="";}
+
+void mousePressed() {
+  println("Coordinates: " + mouseX +"," + mouseY);
+  mouseAction();
+    }
+
+void mouseAction(){
+  if( mouseX > 149 && mouseX < 251){
+   if( mouseY > 149 && mouseY < 251){
+    println("square 1");
+    myPort.write('1'); 
+   }
+  }else{myPort.write('0');}
+}
